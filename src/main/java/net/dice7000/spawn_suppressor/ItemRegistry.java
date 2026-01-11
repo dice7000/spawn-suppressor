@@ -24,8 +24,8 @@ public class ItemRegistry {
         }
         @Override public InteractionResultHolder<ItemStack> use(Level p_41432_, Player p_41433_, InteractionHand p_41434_) {
             if (!p_41432_.isClientSide && p_41432_ instanceof ServerLevel) {
-                ((ServerLevelMixinMethod) p_41432_).spawn_suppressor$toggleSpawn();
-                boolean ss = ((ServerLevelMixinMethod) p_41432_).spawn_suppressor$getSuppressSpawn();
+                ((SpawnSuppressorMethod) p_41432_).spawn_suppressor$toggleSpawn();
+                boolean ss = ((SpawnSuppressorMethod) p_41432_).spawn_suppressor$getSuppressSpawn();
                 SpawnSuppressor.LOGGER.info("Set suppressSpawn to {}.", ss);
                 p_41433_.sendSystemMessage(Component.literal("SpawnSuppressor: Set suppressSpawn to " + ss + "."));
                 p_41432_.playSound(null, p_41433_.getX(), p_41433_.getY(), p_41433_.getZ(),
